@@ -10,6 +10,7 @@ from _touch import _TouchKeywords
 from _keyevent import _KeyeventKeywords
 from _android_utils import _AndroidUtilsKeywords
 from _mobilekeywords import _MobileKeywords
+from _browsermanagement import _BrowserManagementKeywords
 
 __all__ = ["_LoggingKeywords",
            "_RunOnFailureKeywords",
@@ -20,4 +21,5 @@ __all__ = ["_LoggingKeywords",
            "_TouchKeywords",
            "_KeyeventKeywords",
            "_AndroidUtilsKeywords",
-           "_MobileKeywords"]
+           "_MobileKeywords",
+           "_BrowserManagementKeywords"]

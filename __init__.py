@@ -19,6 +19,8 @@ class MacacaLibrary(
     _KeyeventKeywords,
     _AndroidUtilsKeywords,
     _MobileKeywords,
+    _BrowserManagementKeywords,
+
 ):
     """MacacaLibrary is a App testing library for Robot Framework.
 

@@ -155,6 +155,22 @@ class _ElementKeywords(KeywordGroup):
                                  "but it is '%s'." % (locator, expected, element.get_attribute('name')))
         self._info("Element '%s' name is '%s' " % (locator, expected))
 
+
+    def press_key(self, locator, key):
+        """Simulates user pressing key on element identified by `locator`.
+        `key` is either a single character, a string, or a numerical ASCII code of the key
+        lead by '\\\\'.
+        Examples:
+        | Press Key | text_field   | q |
+        | Press Key | text_field   | abcde |
+        | Press Key | login_button | \\\\13 | # ASCII code for enter key |
+        """
+        if key.startswith('\\') and len(key) > 1:
+            key = self._map_ascii_key_code_to_key(int(key[1:]))
+        element = self._element_find(locator, True, True)
+        #select it
+        element.send_keys(key)    
+
     def element_value_should_be(self, locator, expected):
         element = self._element_find(locator, True, True)
         if expected != element.get_attribute('value'):

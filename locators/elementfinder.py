@@ -47,9 +47,8 @@ class ElementFinder(object):
             tag, constraints)
 
     def _find_by_name(self, browser, criteria, tag, constraints):
-        return self._filter_elements(
-            browser.element_by_name(criteria),
-            tag, constraints)
+    	criteria1="//*[@text='{0}']".format(criteria)
+    	return self._filter_elements(browser.find_elements_by_xpath(criteria1),tag, constraints)
 
     def _find_by_xpath(self, browser, criteria, tag, constraints):
         #logger.write("find xpath", level='INFO', html=False)
@@ -73,27 +72,27 @@ class ElementFinder(object):
 
     def _find_by_link_text(self, browser, criteria, tag, constraints):
         return self._filter_elements(
-            browser.find_elements_by_link_text(criteria),
+            browser.elements_by_link_text(criteria),
             tag, constraints)
         
     def _find_by_partial_link_text(self, browser, criteria, tag, constraints):
         return self._filter_elements(
-            browser.find_elements_by_partial_link_text(criteria),
+            browser.elements_by_partial_link_text(criteria),
             tag, constraints)
 
     def _find_by_css_selector(self, browser, criteria, tag, constraints):
         return self._filter_elements(
-            browser.find_elements_by_css_selector(criteria),
+            browser.elements_by_css_selector(criteria),
             tag, constraints)
 
     def _find_by_tag_name(self, browser, criteria, tag, constraints):
         return self._filter_elements(
-            browser.find_elements_by_tag_name(criteria),
+            browser.elements_by_tag_name(criteria),
             tag, constraints)
 
     def _find_by_class_name(self, browser, criteria, tag, constraints):
         return self._filter_elements(
-            browser.find_elements_by_class_name(criteria),
+            browser.elements_by_class_name(criteria),
             tag, constraints)
 
     def _find_element_by_accessibility_id(self, browser, criteria, tag, constraints):
@@ -103,13 +102,13 @@ class ElementFinder(object):
     def _find_by_android(self, browser, criteria, tag, constraints):
         """Find element matches by UI Automator."""
         return self._filter_elements(
-            browser.find_elements_by_android_uiautomator(criteria),
+            browser.elements_by_android_uiautomator(criteria),
             tag, constraints)
 
     def _find_by_ios(self, browser, criteria, tag, constraints):
         """Find element matches by UI Automation."""
         return self._filter_elements(
-            browser.find_elements_by_ios_uiautomation(criteria),
+            browser.elements_by_ios_uiautomation(criteria),
             tag, constraints)
 
     def _find_by_default(self, browser, criteria, tag, constraints):
